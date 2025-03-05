@@ -1,4 +1,4 @@
-const {test , expect} = require('@playwright/test')
+const { test, expect } = require("@playwright/test");
 
 // page.getByRole() to locate by explicit and implicit accessibility attributes.
 // page.getByText() to locate by text content.
@@ -8,18 +8,18 @@ const {test , expect} = require('@playwright/test')
 // page.getByTitle() to locate an element by its title attribute.
 // page.getByTestId() to locate an element based on its data-testid attribute (other attributes can be configured).
 
+test("HomePage", async ({ page }) => {
+  await page.goto(
+    "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login",
+  );
+  await page.getByPlaceholder("Username").fill("Admin");
+  await page.getByPlaceholder("password").fill("admin123");
+  await page.getByRole("button", { type: "submit" }).click();
+  const name = await page
+    .locator('//p[@class= "oxd-userdropdown-name"]')
+    .textContent();
+  console.log(name);
 
-test('HomePage' ,async ({page})=>{
-    await page.goto('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
-    await page.getByPlaceholder('Username').fill('Admin')
-    await page.getByPlaceholder('password').fill('admin123')
-    await page.getByRole('button',{type:'submit'}).click()
-    const name = await page.locator('//p[@class= "oxd-userdropdown-name"]').textContent()
-    console.log(name);
-    
-    await expect(await page.getByText(name)).toBeVisible()
-    await page.getByTitle('OrangeHRM').textContent()
-
-    
-
-})
+  await expect(await page.getByText(name)).toBeVisible();
+  await page.getByTitle("OrangeHRM").textContent();
+});

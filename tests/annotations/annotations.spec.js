@@ -1,4 +1,4 @@
-const {test ,expect} = require('@playwright/test')
+const { test, expect } = require("@playwright/test");
 
 /*
 //1) skip //when we use skips that means we are skiping that test
@@ -17,15 +17,14 @@ test('test-conditions', async ({page , browserName})=>{
 })
  */
 
-
 //3)  only // when we use only means only that test will run
 
-test.only('test-2', async ({page})=>{
-    console.log("This is my Test-2")
-})
+test.only("test-2", async ({ page }) => {
+  console.log("This is my Test-2");
+});
 
 //4) Slow //Slow test will be given triple the default timeout.
-test('test-slow', async ({page})=>{
-    test.slow()
-    console.log("This is my test-slow")
-})
+test("test-slow", async ({ page }) => {
+  test.slow();
+  console.log("This is my test-slow");
+});

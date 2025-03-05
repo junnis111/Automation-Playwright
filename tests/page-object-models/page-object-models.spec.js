@@ -1,6 +1,6 @@
 const {test , expect} = require('@playwright/test')
-import LoginPage from '../pages/login'
-import HomePage from '../pages/homepage'
+import LoginPage from '../../pages/login'
+import HomePage from '../../pages/homepage'
 
 
 

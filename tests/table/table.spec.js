@@ -25,7 +25,7 @@ test("Table", async ({ page }) => {
   // await selectProduct(rows,page,'Laptop')
   // await page.waitForTimeout(5000)
 
-  const pages = await page.locator(".pagination li a");
+  const pages = page.locator(".pagination li a");
   console.log("Pages:", await pages.count());
   for (let p = 0; p < (await pages.count()); p++) {
     if (p > 0) {
@@ -42,6 +42,7 @@ test("Table", async ({ page }) => {
   }
 });
 
+// Function for select multiple checkbox
 async function selectProduct(rows, page, name) {
   const matchedRow = rows.filter({
     // has : page.locator('td'),
